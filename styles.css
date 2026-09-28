@@ -119,7 +119,18 @@ body {
 
 h1 {
     color: var(--c-titulo);
-    text-shadow: 1px 0px 5px hsla(123, 66%, 58%, 0.716);
+    text-shadow: 1px 0px 20px hsla(123, 66%, 58%, 0.716);
+    font-size: 2.5rem;
+    animation: parpadeo 2.5s infinite;
+}
+
+@keyframes parpadeo {
+  0%, 100% {
+    text-shadow: 1px 0px 20px hsla(123, 66%, 58%, 0.716);
+  }
+  50% {
+    text-shadow: none;
+  }
 }
 
 address{
@@ -214,6 +225,7 @@ section {
     border: 1px solid #1494294a;
     border-radius: 10px;
     box-shadow: 0 4px 9px hsla(133, 66%, 58%, 0.481);
+    padding: 0 5px;
 }
 
 .tarjeta-habilidad h4{
