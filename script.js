@@ -88,7 +88,7 @@ const botonPlegar = document.querySelector("#plegar");
 const menuNav = document.querySelector("header nav");
 
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 110) {
+  if (window.scrollY > 90) {
     botonPlegar.style.opacity = "1";
     botonPlegar.style.pointerEvents = "auto";
   } else {
