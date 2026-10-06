@@ -118,17 +118,11 @@ body {
 }
 
 h1 {
-    font-family: JetBrains+Mono;
+    font-family: "Press Start 2P", system-ui;
     color: var(--c-titulo);
     text-shadow: 1px 0px 20px hsla(123, 66%, 58%, 0.716);
     font-size: 3.5rem;
     animation: parpadeo 2.5s infinite;
-}
-
-h2 {
-    color: var(--c-titulo);
-    text-shadow: 1px 0px 20px hsla(123, 66%, 58%, 0.716);
-    text-align: center
 }
 
 @keyframes parpadeo {
@@ -138,6 +132,14 @@ h2 {
   50% {
     text-shadow: none;
   }
+}
+
+h2 {
+    font-family: "Press Start 2P", system-ui;
+    color: var(--c-titulo);
+    font-size: 1.1rem;
+    text-shadow: 1px 0px 20px hsla(123, 66%, 58%, 0.716);
+    text-align: center
 }
 
 address{
@@ -211,8 +213,8 @@ section {
     max-width: 300px;
     height: auto;
     border-radius: 8px;
-    border: 2px solid var(--color-secundario);
-    box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+    border: 3px double var(--color-secundario);
+    box-shadow: 0 0 20px rgba(43, 185, 48, 0.342);
 }
 
 #sobre-mi {
@@ -292,14 +294,16 @@ section {
     transition: max-height 0.4s ease, opacity 0.4s ease;
 }
 
-#Proyectos img{
-    border: 1px double #00a01bde;
-    border-radius: 10px;
-}
-
 #Proyectos article a{
     justify-content: center;
     display: flex;
+}
+
+#Proyectos article img {
+    margin: 0 auto;
+    border-radius: 8px;
+    border: 2px solid #1494294a;
+    box-shadow: 0 1px 10px hsla(133, 66%, 58%, 0.481);
 }
 
 #Proyectos article:hover{
@@ -457,6 +461,10 @@ button:hover {
     .inicio-texto p {
         max-width: 100%;
         margin-inline: auto;
+    }
+
+    #Inicio h1 {
+        font-size: 1.8rem;
     }
 
     #Inicio h2{

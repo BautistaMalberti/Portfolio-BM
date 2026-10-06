@@ -143,3 +143,34 @@ botonFondo.addEventListener("click", () => {
     estadoFondo = 0;
   }
 });
+
+
+const titulo = document.querySelector("h1");
+const textoFinal = titulo.textContent;
+const caracteresAzar = "01";
+
+let letrasReveladas = 0;
+
+const intervalo = setInterval(() => {
+  const textoAnimado = textoFinal
+    .split("")
+    .map((letra, index) => {
+      if (letra === " ") {
+        return " ";
+      }
+      if (index < letrasReveladas) {
+        return textoFinal[index];
+      }
+      return caracteresAzar[Math.floor(Math.random() * caracteresAzar.length)];
+    })
+    .join("");
+
+  titulo.textContent = textoAnimado;
+
+  letrasReveladas += 1;
+
+  if (letrasReveladas >= textoFinal.length) {
+    titulo.textContent = textoFinal;
+    clearInterval(intervalo);
+  }
+}, 50);
