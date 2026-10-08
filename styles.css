@@ -123,7 +123,7 @@ h1 {
     font-family: "Press Start 2P", system-ui;
     color: var(--c-titulo);
     text-shadow: 1px 0px 20px hsla(123, 66%, 58%, 0.716);
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     animation: parpadeo 2.5s infinite;
 }
 
@@ -359,6 +359,7 @@ section {
 }
 
 .recuadro-form{
+    resize: none;
     padding: 10px 12px;
     border: 1px solid #cccccc25;
     border-radius: 6px;
@@ -388,8 +389,25 @@ section {
     padding: 20px;
 }
 
-input[type="radio"] {
-    color: var(--c-titulo);
+.opciones input[type="radio"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #006e11ab;
+    border-radius: 2px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+
+.opciones input[type="radio"]:hover {
+    background-color: var(--c-secundario);
+    transition: background-color 0.3s ease;
+}
+
+.opciones input[type="radio"]:checked {
+  background-color: var(--c-titulo);
+  box-shadow: 0 0 15px var(--c-titulo);
 }
 
 button {

@@ -174,3 +174,41 @@ const intervalo = setInterval(() => {
     clearInterval(intervalo);
   }
 }, 50);
+
+const url = "https://api.quotable.io/random";
+const citaTexto = document.getElementById("cita-texto");
+const citaAutor = document.getElementById("cita-autor");
+const controlador = new AbortController();
+const temporizador = setTimeout(function() {
+  controlador.abort(); 
+}, 5000);
+
+fetch(url, {signal: controlador.signal})
+  .then(function (respuesta) {
+    if (!respuesta.ok) {
+      throw new Error("Error http: " + respuesta.status);
+    }
+    return respuesta.json()
+  }) 
+
+  .then(function (datos) {
+  const texto = datos.content || datos.quote;
+  const autor = datos.author;
+
+  if (!texto || !autor) {
+    throw new Error("La respuesta no tiene el formato esperado");
+  }
+
+  citaTexto.textContent = "«" + texto + "»";
+  citaAutor.textContent = autor;
+  })
+  .catch(function (error) {
+    if (error.name === "AbortError") {
+      console.error("Timeout: el servidor tardó más de 5 segundos.");
+    } else {
+      console.error("No se pudo obtener la cita:", error);
+    }
+  })
+  .finally(function () {
+    clearTimeout(temporizador);
+  });
