@@ -408,6 +408,7 @@ section {
 .opciones input[type="radio"]:checked {
   background-color: var(--c-titulo);
   box-shadow: 0 0 15px var(--c-titulo);
+  transition: box-shadow 0.3s ease;
 }
 
 button {
