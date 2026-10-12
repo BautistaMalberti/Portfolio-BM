@@ -1,3 +1,4 @@
+/*=============AJUSTES GENERALES==============*/
 *{
     box-sizing: border-box;
 }
@@ -11,11 +12,18 @@
     --c-titulo: hsla(123, 84%, 24%, 0.752);
 }
 
-
 html {
     scroll-behavior: smooth;
     overflow-anchor: none;
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/*=============ENLACES y MENU DE NAVEGACION==============*/
 
 a {
     color: var(--c-titulo);
@@ -38,7 +46,6 @@ header {
     z-index: 100;
     padding: 15px 30px;
     margin: 20px auto 15px;
-    
 }
 
 header a {
@@ -86,11 +93,7 @@ nav ul {
     font-style: normal;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
+/*=============BODY (FONDO)==============*/
 
 body {
     background-color: var(--c-fondo);
@@ -117,6 +120,8 @@ body {
   }
 }
 
+/*=============TITULOS y ENCABEZADOS==============*/
+
 h1 {
     font-family: "Press Start 2P", system-ui;
     color: var(--c-titulo);
@@ -142,16 +147,7 @@ h2 {
     text-align: center
 }
 
-address{
-    background-color: var(--c-secundario);
-    margin: 40px auto;
-    padding: 20px 50px;
-    border: 1px solid #1494294a;
-    border-radius: 8px;
-    border-width: 4px;
-    border-style: double;
-    box-shadow: 0 4px 9px hsla(133, 66%, 58%, 0.481);
-}
+/*=============SECCIONES==============*/
 
 section {
     border-top: 10px double #0fc72e42;
@@ -163,6 +159,8 @@ section {
     border-radius: 8px;
     max-width: 80%;
 }
+
+/*=============INICIO==============*/
 
 #Inicio {
     display: grid;
@@ -195,6 +193,8 @@ section {
     transition: 0.3s;
     box-shadow: 0 10px 15px #12770560;
 }
+
+/*=============SOBRE MI==============*/
 
 #sobre-mi h4{
     color: var(--c-titulo);
@@ -260,6 +260,8 @@ section {
     font-style: italic;
 }
 
+/*=============PROYECTOS==============*/
+
 #Proyectos .articulos{
     align-items: start;
     display: grid;
@@ -320,6 +322,8 @@ section {
 .leermas-abajo{
     display: none;
 }
+
+/*=============CONTACTO==============*/
 
 #Contacto {
     text-align: center;
@@ -435,6 +439,8 @@ button:hover {
     transition: opacity 0.4s ease;
 }
 
+/*=============REFERENCIAS==============*/
+
 .referencia {
     min-height: 470px;
     border: 1px solid #1494294a;
@@ -466,6 +472,21 @@ button:hover {
     overflow: hidden;
     transition: max-height 0.4s ease, opacity 0.4s ease;
 }
+
+/*=============FOOTER==============*/
+
+address{
+    background-color: var(--c-secundario);
+    margin: 40px auto;
+    padding: 20px 50px;
+    border: 1px solid #1494294a;
+    border-radius: 8px;
+    border-width: 4px;
+    border-style: double;
+    box-shadow: 0 4px 9px hsla(133, 66%, 58%, 0.481);
+}
+
+/*=============MEDIA QUERIES==============*/
 
 @media (max-width: 768px) {
 
