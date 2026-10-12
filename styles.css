@@ -13,8 +13,8 @@
 }
 
 html {
-    scroll-behavior: smooth;
-    overflow-anchor: none;
+    scroll-behavior: smooth;        
+    overflow-anchor: none;          
 }
 
 img {
@@ -40,10 +40,10 @@ a:hover{
 header {
     display: flex;
     align-items: center;
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 100;
+    position: sticky;       /* Mantener el header visible al hacer scroll */
+    top: 0;                 /* Posición en la parte superior de la ventana */
+    left: 0;                /* Alineación a la izquierda */
+    z-index: 100;           /* Asegura que el header esté por encima de otros elementos */
     padding: 15px 30px;
     margin: 20px auto 15px;
 }
@@ -57,7 +57,7 @@ nav {
     overflow-anchor: none;
     margin-right: 10px;
     padding: 1px 0;
-    flex: 1;
+    flex: 1;            /* permite que el nav ocupe todo el espacio horizontal disponible */
     background-color: var(--c-secundario);
     border: 1px solid #1494294a;
     border-radius: 8px;
@@ -65,7 +65,7 @@ nav {
     border-style: double;
     box-shadow: 0 4px 9px hsla(133, 66%, 58%, 0.481);
     margin-left: 15px;
-    overflow: hidden;
+    overflow: hidden;   /* oculta el contenido que se desborda del contenedor (para que la animacion de plegar se vea bien) */
     opacity: 1;
     max-height: 500px;
     transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease, border-width 0.4s ease;
@@ -76,15 +76,15 @@ nav ul {
     justify-content: space-around;
     align-items: center;
     gap: 20px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* permite que los elementos se ajusten a la siguiente línea si no caben en una sola fila */
     list-style: none;  
     padding: 0px 70px;
 }
 
 #plegar{
-    flex-shrink: 0;
+    flex-shrink: 0; /* evita que el botón se reduzca de tamaño */
     opacity: 0;
-    pointer-events: none;
+    pointer-events: none; /* evita que el botón sea clickeable cuando está oculto */
     transition: opacity 0.4s ease, transform 0.4s ease;
     transform: rotate(0deg);
 }
@@ -96,27 +96,28 @@ nav ul {
 /*=============BODY (FONDO)==============*/
 
 body {
-    background-color: var(--c-fondo);
-    background-image: repeating-linear-gradient(
-    45deg,
-    rgba(57, 139, 60, 0.13) 0px,
-    rgba(76, 175, 80, 0.08) 4px,
-    transparent 2px,
-    transparent 20px
-    );
-    animation: mover-lineas 100s linear infinite;
-    background-size: 200% 200%;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     color: var(--c-texto);
     line-height: 1.6;
+    background-color: var(--c-fondo);
+    background-image: repeating-linear-gradient( /* efecto de líneas diagonales de fondo*/
+    45deg,
+    rgba(57, 139, 60, 0.13) 0px,               /* color de las líneas y su transparencia */
+    rgba(76, 175, 80, 0.08) 4px,
+    transparent 2px,
+    transparent 20px
+    ); 
+    animation: mover-lineas 100s linear infinite; /* linear infinite para que se mueva de manera continua*/
+    background-size: 200% 200%;                   /* tamaño del patrón de fondo para que se vea más grande y se mueva más lentamente */
 }
-
-@keyframes mover-lineas {
-  0% {
-    background-position: 0% 0%;
+/* animación para mover las líneas diagonales de fondo: Solo se define el antes y el después;
+    el navegador renderiza solo todos los pasos intermedios */
+@keyframes mover-lineas { 
+  0% {                     /* 0% del tiempo de pagina: frame inicial */
+    background-position: 0% 0%; /* fondo en su posición predeterminada */
   }
-  100% {
-    background-position: 100% 100%;
+  100% {                   /* 100% del tiempo de pagina: frame final */
+    background-position: 100% 100%; /* fondo desplazado hacia abajo-derecha */
   }
 }
 
@@ -129,18 +130,18 @@ h1 {
     font-size: 3.2rem;
     animation: parpadeo 2.5s infinite;
 }
-
+/* animación para el parpadeo del título: mismo concepto que para el fondo */
 @keyframes parpadeo {
-  0%, 100% {
-    text-shadow: 1px 0px 20px hsla(123, 66%, 58%, 0.716);
+  0%, 100% {                    /* 0% y 100% del tiempo de pagina: es lo mismo para el frame inicial y el final */
+    text-shadow: 1px 0px 20px hsla(123, 66%, 58%, 0.716);   /* se estableece una sombra de texto (brillo) */
   }
-  50% {
-    text-shadow: none;
+  50% {     /* 50% del tiempo de pagina: frame intermedio */
+    text-shadow: none; /* se elimina la sombra de texto (se apaga el brillo) */
   }
 }
 
 h2 {
-    font-family: "Press Start 2P", system-ui;
+    font-family: "Press Start 2P", system-ui; /* si no carga la fuente personalizada, utiliza la fuente del sistema */
     color: var(--c-titulo);
     font-size: 1.1rem;
     text-shadow: 1px 0px 20px hsla(123, 66%, 58%, 0.716);
@@ -181,6 +182,8 @@ section {
     border-radius: 8px;
     box-shadow: 0 4px 8px hsla(118, 89%, 28%, 0.308);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 auto;
+
 }
 
 .inicio-texto{
@@ -229,7 +232,7 @@ section {
 }
 
 #habil-cont img {
-    flex: 0 1 300px;
+    flex: 0 1 300px; /* la imagen tiene como base 300px, no se extiende mas de ello aunque sobre lugar, pero si puede encogerse si no hay espacio suficiente */
 }
 
 .habilidades{
@@ -390,7 +393,7 @@ section {
 }
 
 .opciones input[type="radio"] {
-    appearance: none;
+    appearance: none;           /* quita el estilo predeterminado del radio button, para personalizarlo */
     width: 18px;
     height: 18px;
     border: 2px solid #006e11ab;
@@ -434,8 +437,8 @@ button:hover {
 #arriba{
     opacity: 0;
     font-size: 30px;
-    position: fixed;
-    bottom: 25px;
+    position: fixed;    /* posición fija en la ventana del navegador */
+    bottom: 25px;    /* distancia desde la parte inferior de la ventana */
     transition: opacity 0.4s ease;
 }
 
@@ -488,7 +491,7 @@ address{
 
 /*=============MEDIA QUERIES==============*/
 
-@media (max-width: 768px) {
+@media (max-width: 768px) {     /* Ajustes para pantallas de 768px o menos */
 
     #Inicio {
         grid-template-columns: 1fr;
@@ -498,7 +501,7 @@ address{
 
     .inicio-texto p {
         max-width: 100%;
-        margin-inline: auto;
+        margin: 0 auto;
     }
 
     #Inicio h1 {
@@ -565,7 +568,7 @@ address{
     
 }
 
-@media (max-width: 992px) {
+@media (max-width: 992px) { /* Ajustes para pantallas de 992px o menos */
     h1{
         font-size: 2.5rem;
     }
@@ -578,7 +581,7 @@ address{
 
     .inicio-texto p {
         max-width: 100%;
-        margin-inline: auto;
+        margin: 0 auto;
     }
 
     #Inicio h2{
@@ -613,7 +616,7 @@ address{
 }
 
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {   /* Ajustes para el modo oscuro del sistema operativo (Preferido)*/
     :root {
         --c-primario: #063b09;
         --c-secundario: #293129;
